@@ -10,6 +10,7 @@
     <ul>
         <li><a href="./index.php">Trang chủ</a></li>
         <li><a href="./index.php?controller=category&action=list">Bài viết</a></li>
+        <li><a href="./index.php?controller=author&action=list">Tác giả</a></li>
     </ul>
 
     <h1>Tôi là TRANG CHỦ</h1>
