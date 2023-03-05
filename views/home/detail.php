@@ -46,23 +46,23 @@
                     ?>
                 <div class="row mb-5">
                     <div class="col-sm-4">
-                        <img src="/CSE485_2023_BTTH02/views/image/songs/<?= $article->getImage()?>" class="img-fluid" alt="...">
+                        <img src="/CSE485_2023_BTTH02/views/image/songs/<?php echo $article->getImage()?>" class="img-fluid" alt="...">
                     </div>
                     <div class="col-sm-8">
                         <h5 class="card-title mb-2">
-                            <a href="" class="text-decoration-none"><?=$article->getTitle()?></a>
+                            <a href="" class="text-decoration-none"><?php echo $article->getTitle()?></a>
                         </h5>
-                        <p class="card-text"><span class=" fw-bold">Bài hát: </span><?=$article->getSong_name()?> </p>
-                        <p class="card-text"><span class=" fw-bold">Thể loại: </span><?=$article->getCat_name()?></p>
-                        <p class="card-text"><span class=" fw-bold">Tóm tắt: </span><?=$article->getSummary()?></p>
-                        <p class="card-text"><span class=" fw-bold">Nội dung: </span><?=$article->getContent()?></p>
-                        <p class="card-text"><span class=" fw-bold">Tác giả: </span><?=$article->getAuthor_name()?></p>
+                        <p class="card-text"><span class=" fw-bold">Bài hát: </span><?php echo $article->getSong_name()?> </p>
+                        <p class="card-text"><span class=" fw-bold">Thể loại: </span><?php echo $article->getCat_name()?></p>
+                        <p class="card-text"><span class=" fw-bold">Tóm tắt: </span><?php echo $article->getSummary()?></p>
+                        <p class="card-text"><span class=" fw-bold">Nội dung: </span><?php echo $article->getContent()?></p>
+                        <p class="card-text"><span class=" fw-bold">Tác giả: </span><?php echo $article->getAuthor_name()?></p>
 
                     </div>          
         </div>
-        <?php
-         }
-        ?>
+                    <?php
+                }
+                ?>
     </main>
     <footer class="bg-white d-flex justify-content-center align-items-center border-top border-secondary  border-2 fixed-bottom" style="height:80px">
         <h4 class="text-center text-uppercase fw-bold">TLU's music garden</h4>

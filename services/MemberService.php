@@ -1,9 +1,37 @@
 <?php
     
-include "configs/DBConnection.php";
-include "models/Member.php";
+require_once "configs/DBConnection.php";
+require "models/Member.php";
 class MemberService
 {
+    public function checkLogin($username)
+    {
+        $dbConn = new DBConnection();
+        $conn = $dbConn->getConnection();
+
+        $sql = "SELECT * FROM users WHERE username = '$username'";
+        $result = $conn ->query($sql);
+        $users = [];
+        while($row = $result->fetch()){
+            $user = new Member($row['id'], $row['name'], $row['email'], $row['username'], $row['password'], $row['is_admin']);
+            array_push($users, $user);
+        }
+
+
+        return $users;
+    }
+    public function countUser()
+    {
+        $dbConn = new DBConnection();
+        $conn = $dbConn->getConnection();
+
+        $sql = "SELECT COUNT(id) as count FROM users";
+        $result = $conn ->query($sql);
+        while ($row = $result->fetch()) {
+            $count = strval($row['count']);
+        }
+        return $count;
+    }
     public function getAllMember()
     {
         // 4 bước thực hiện
@@ -70,20 +98,20 @@ class MemberService
     public function findMemberId($id)
     {
         $dbConn = new DBConnection();
-    $conn = $dbConn->getConnection();
+        $conn = $dbConn->getConnection();
 
-     // B2. Truy vấn
-     $sql = "SELECT * FROM users WHERE id = '$id'";
-     $stmt = $conn->query($sql);
+        // B2. Truy vấn
+        $sql = "SELECT * FROM users WHERE id = '$id'";
+        $stmt = $conn->query($sql);
 
     
-     while($row = $stmt->fetch()){
-         $member = new Member($row['id'], $row['name'], $row['email'],$row['username'],$row['password'],$row['is_admin']);
+        while($row = $stmt->fetch()){
+            $member = new Member($row['id'], $row['name'], $row['email'], $row['username'], $row['password'], $row['is_admin']);
          
-     }
-     // Mảng (danh sách) các đối tượng Author Model
+        }
+        // Mảng (danh sách) các đối tượng Author Model
 
-     return $member;
+        return $member;
     }
 
     public function editMember($id, $name, $email, $user, $pass,$is_admin)

@@ -1,5 +1,5 @@
 <?php
-include_once "./controllers/MemberController.php";
+require_once "./controllers/MemberController.php";
 $mail= new MemberController();
 ?>
 <!DOCTYPE html>

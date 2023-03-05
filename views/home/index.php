@@ -69,7 +69,7 @@
         <?php
 
         foreach($articles as $article){
-                ?>
+            ?>
             <div class="col-sm-3">
                 <div class="card mb-2" style="width: 100%;">
                     <img src="/CSE485_2023_BTTH02/views/image/songs/<?php echo $article->getImage()?>" class="card-img-top" alt="...">
@@ -81,7 +81,7 @@
                 </div>
             </div>
                 <?php
-            }
+        }
         ?>
 
     </main>

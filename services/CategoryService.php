@@ -1,12 +1,14 @@
 <?php
-require_once("configs/DBConnection.php");
-include("models/Category.php");
+require_once "configs/DBConnection.php";
+require "models/Category.php";
 
-class CategoryService{
-    public function getAllCategory(){
+class CategoryService
+{
+    public function getAllCategory()
+    {
         // 4 bước thực hiện
-       $dbConn = new DBConnection();
-       $conn = $dbConn->getConnection();
+        $dbConn = new DBConnection();
+        $conn = $dbConn->getConnection();
 
         // B2. Truy vấn
         $sql = "SELECT * FROM theloai" ;
@@ -16,13 +18,14 @@ class CategoryService{
         $categories = [];
         while($row = $stmt->fetch()){
             $category = new Category($row['ma_tloai'], $row['ten_tloai'],  $row['SLBaiViet']);
-            array_push($categories,$category);
+            array_push($categories, $category);
         }
         // Mảng (danh sách) các đối tượng Category Model
 
         return $categories;
     }
-    public function addCategory($ten_tloai){
+    public function addCategory($ten_tloai)
+    {
         $dbConn = new DBConnection();
         $conn = $dbConn->getConnection();
 
@@ -31,7 +34,8 @@ class CategoryService{
         
         return true;
     }
-    public function deleteCategory($ma_tloai){
+    public function deleteCategory($ma_tloai)
+    {
         $dbConn = new DBConnection();
         $conn = $dbConn->getConnection();
 
@@ -41,7 +45,8 @@ class CategoryService{
         return true;
     }
 
-    public function findCategoryById($ma_tloai){
+    public function findCategoryById($ma_tloai)
+    {
         $dbConn = new DBConnection();
         $conn = $dbConn->getConnection();
 
@@ -51,7 +56,8 @@ class CategoryService{
         return $stmt;
     }
 
-    public function editCategory($ma_tloai, $ten_tloai){
+    public function editCategory($ma_tloai, $ten_tloai)
+    {
         $dbConn = new DBConnection();
         $conn = $dbConn->getConnection();
 
@@ -59,5 +65,17 @@ class CategoryService{
         $stmt = $conn->query($sql);
         
         return true;
+    }
+    public function countCategory()
+    {
+        $dbConn = new DBConnection();
+        $conn = $dbConn->getConnection();
+
+        $sql = "SELECT COUNT(ma_tloai) as count FROM theloai";
+        $result = $conn ->query($sql);
+        while ($row = $result->fetch()) {
+            $count = strval($row['count']);
+        }
+        return $count;
     }
 }

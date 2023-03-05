@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['admin'])) {
+    header("Location:/CSE485_2023_BTTH02/index.php?controller=home&action=login");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,21 +28,25 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
+                        <a class="nav-link" aria-current="page" href="index.php?controller=admin&action=list">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Trang ngoài</a>
+                        <a class="nav-link" href="./index.php">Trang ngoài</a>
+                    </li>
+                    <li>
+                    <a class="nav-link active fw-bold" href="./index.php?controller=category&action=list">Thể loại</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="category.php">Thể loại</a>
+                        <a class="nav-link" href="./index.php?controller=author&action=list">Tác giả</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="author.php">Tác giả</a>
+                        <a class="nav-link " href="./index.php?controller=article&action=list">Bài viết</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="article.php">Bài viết</a>
+                        <a class="nav-link" href="./index.php?controller=member&action=list">Người dùng</a>
                     </li>
                 </ul>
+                <a class="nav-link " href="./index.php?controller=home&action=logout">Logout</a>
                 </div>
             </div>
         </nav>
@@ -60,9 +70,9 @@
                     <tbody>
                     <?php
                         $count =0;
-                            foreach($categories as $category){
-                            $count++;
-                            ?>
+                    foreach($categories as $category){
+                        $count++;
+                        ?>
                         <tr>
                             <td><?php echo $count?></td>
                             <td><?php echo $category->getTen_tloai()?></td>
@@ -77,8 +87,8 @@
                             </td> -->
                         </tr>
                             <?php
-                            }
-                            ?>
+                    }
+                    ?>
 
                        
                     </tbody>

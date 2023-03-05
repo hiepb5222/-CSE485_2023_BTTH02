@@ -1,6 +1,6 @@
 <?php
 require "./configs/sendmail.php";
-include "services/MemberService.php";
+require "services/MemberService.php";
 class MemberController
 {
 
@@ -16,12 +16,16 @@ class MemberController
     function home()
     {
         $memberService = new MemberService();
-        include("views/home/login.php");
+        include "views/home/login.php";
     }
     function signup()
     {
         $memberService = new MemberService();
-        include("views/home/signup.php");
+        include "views/home/signup.php";
+    }function signin()
+    {   
+        $memberService = new MemberService();
+        include "views/home/signup.php";
     }
     public function resigter()
     {
@@ -91,7 +95,7 @@ class MemberController
             }
         }
 
-        include("views/member/add_member.php");
+        include "views/member/add_member.php";
     }
     public function add()
     {
@@ -158,20 +162,20 @@ class MemberController
             }
         }
 
-        include("views/member/add_member.php");
+        include "views/member/add_member.php";
     }
     public function list()
     {
 
         $memberService = new MemberService();
         $members = $memberService->getAllMember();
-        include("views/member/list_member.php");
+        include "views/member/list_member.php";
     }
     public function view_edit()
     {
         $memberService = new MemberService();
         $findMember = $memberService->findMemberId($_GET['id']);
-        include("views/member/edit_member.php");
+        include "views/member/edit_member.php";
     }
     public function edit()
     {
@@ -238,7 +242,7 @@ class MemberController
                 echo "Tồn tại";
             }
         }
-        include("views/member/edit_member.php");
+        include "views/member/edit_member.php";
     }
 
 
@@ -252,6 +256,6 @@ class MemberController
             }
         }
         $members = $memberService->getAllMember();
-        include("views/member/list_member.php");
+        include "views/member/list_member.php";
     }
 }
