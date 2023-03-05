@@ -6,14 +6,16 @@ require "controllers/BaseController.php";
 class ArticleController extends BaseController
 {
     // Hàm xử lý hành động index
-    public function index(){
+    public function index()
+    {
         // Nhiệm vụ 1: Tương tác với Services/Models
         echo "Tương tác với Services/Models from Article";
         // Nhiệm vụ 2: Tương tác với View
         echo "Tương tác với View from Article";
     }
 
-    public function add(){
+    public function add()
+    {
         $authorService = new AuthorService();
         $authors = $authorService->getAllAuthors();
 
@@ -144,7 +146,7 @@ class ArticleController extends BaseController
         if($result) {
             header("Location: ./index.php?controller=article&action=list");
         }
-    // }
+        // }
     }
 
 

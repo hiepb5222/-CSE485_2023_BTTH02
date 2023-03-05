@@ -25,24 +25,25 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
+                            <a class="nav-link" aria-current="page" href="index.php?controller=admin&action=list">Trang chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../index.php">Trang ngoài</a>
+                            <a class="nav-link" href="./index.php">Trang ngoài</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="category.php">Thể loại</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="author.php">Tác giả</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="article.php">Bài viết</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active fw-bold" href="users.php">Người dùng</a>
-                        </li>
+                        <li>
+                    <a class="nav-link " href="./index.php?controller=category&action=list">Thể loại</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="./index.php?controller=author&action=list">Tác giả</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="./index.php?controller=article&action=list">Bài viết</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold" href="./index.php?controller=member&action=list">Người dùng</a>
+                    </li>
                     </ul>
+                    <a class="nav-link " href="./index.php?controller=home&action=logout">Logout</a>
                 </div>
             </div>
         </nav>
@@ -56,7 +57,7 @@
 
                     <div class="input-group">
                         <span class="input-group-text" style="width:140px;">ID</span>
-                        <input readonly type="text" name="txtID" class="form-control" value="<?= $findMember->getId() ?>">
+                        <input readonly type="text" name="txtID" class="form-control" value="<?php echo $findMember->getId() ?>">
                     </div>
                     <div class="input-group mb-3 ">
 
@@ -64,7 +65,7 @@
 
                     <div class="input-group">
                         <span class="input-group-text" style="width:140px;">Full Name</span>
-                        <input type="text" name="txtName" class="form-control" required placeholder="Nhập tên " id="txtName" value="<?= $findMember->getName() ?>">
+                        <input type="text" name="txtName" class="form-control" required placeholder="Nhập tên " id="txtName" value="<?php echo $findMember->getName() ?>">
                     </div>
 
                     <div class="input-group mb-3 ">
@@ -73,7 +74,7 @@
 
                     <div class="input-group">
                         <span class="input-group-text" style="width:140px;">Email</span>
-                        <input type="email" name="txtEmail" class="form-control" required value="<?= $findMember->getEmail() ?>">
+                        <input type="email" name="txtEmail" class="form-control" required value="<?php echo $findMember->getEmail() ?>">
                     </div>
                     <div class="input-group mb-3 ">
 
@@ -81,7 +82,7 @@
 
                     <div class="input-group ">
                         <span class="input-group-text" style="width:140px;">Username</i></span>
-                        <input type="text" name="txtUser" id="txtUser" class="form-control" required value="<?= $findMember->getUser() ?>">
+                        <input type="text" name="txtUser" id="txtUser" class="form-control" required value="<?php echo $findMember->getUser() ?>">
                     </div>
 
                     <div class="input-group mb-3 ">
@@ -90,7 +91,7 @@
 
                     <div class="input-group">
                         <span class="input-group-text" style="width:140px;">Is admin</span>
-                        <input type="text" name="txtIs_admin" id="txtIs_admin" class="form-control" required value="<?= $findMember->getIs_admin() ?>">
+                        <input type="text" name="txtIs_admin" id="txtIs_admin" class="form-control" required value="<?php echo $findMember->getIs_admin() ?>">
                     </div>
 
                     <div class="input-group mb-3 ">
@@ -99,7 +100,7 @@
 
                     <div class="input-group">
                         <span class="input-group-text" style="width:140px;">Password</span>
-                        <input type="password" name="txtPass" id="password1" class="form-control" required value="<?= $findMember->getPass() ?>">
+                        <input type="password" name="txtPass" id="password1" class="form-control" required value="<?php echo $findMember->getPass() ?>">
                     </div>
 
                     <div class="input-group mb-3 ">
@@ -108,7 +109,7 @@
 
                     <div class="input-group">
                         <span class="input-group-text" style="width:140px;">Reset password</span>
-                        <input type="password" name="txtResetPass" id="password2" class="form-control" required value="<?= $findMember->getPass() ?>">
+                        <input type="password" name="txtResetPass" id="password2" class="form-control" required value="<?php echo $findMember->getPass() ?>">
                         <span class="input-group-text" onclick="showPassword()"><i class="fas fa-eye"></i></span>
                     </div>
 

@@ -1,6 +1,8 @@
 <?php
 class Member
-{    // Thuộc tính
+{
+
+    // Thuộc tính
 
     private $id;
     private $name;
@@ -62,10 +64,12 @@ class Member
     {
         $this->user = $user;
     }
-    public function setPass($pass) {
+    public function setPass($pass)
+    {
         $this->pass = $pass;
-      }
-      public function seIs_admin($is_admin) {
+    }
+    public function seIs_admin($is_admin)
+    {
         $this->is_admin = $is_admin;
-      }
+    }
 }

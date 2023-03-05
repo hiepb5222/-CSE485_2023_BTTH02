@@ -4,7 +4,6 @@
 
 
 abstract class BaseController
-
 {
 
     const VIEW_FOLDER = 'views';
@@ -20,7 +19,6 @@ abstract class BaseController
     */
 
     protected function view($viewPath , array $data = [])
-
     {
 
         foreach ($data as $key => $value)
@@ -31,15 +29,14 @@ abstract class BaseController
 
         }
 
-        require (self::VIEW_FOLDER .'/' . str_replace('.','/',$viewPath) . '.php');
+        include self::VIEW_FOLDER .'/' . str_replace('.', '/', $viewPath) . '.php';
 
     }
 
     protected function loadServices($servicesPath)
-
     {
 
-        require (self::SERVICES_FOLDER .'/' . $servicesPath . '.php');
+        include self::SERVICES_FOLDER .'/' . $servicesPath . '.php';
 
     }
 

@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="login-check.php" method="post">
+                        <form action="./index.php?controller=home&action=login" method="post">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="txtUser"><i class="fas fa-user"></i></span>
                                 <input type="text" id="username" name="username" class="form-control" placeholder="username" >
@@ -60,7 +60,7 @@
 
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="txtPass"><i class="fas fa-key"></i></span>
-                                <input type="text" id="password" name="password" class="form-control" placeholder="password" >
+                                <input type="password" id="password" name="password" class="form-control" placeholder="password" >
                             </div>
                             
                             <div class="row align-items-center remember">
