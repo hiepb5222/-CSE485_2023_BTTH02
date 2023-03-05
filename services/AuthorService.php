@@ -1,5 +1,5 @@
 <?php
-include("configs/DBConnection.php");
+require_once("configs/DBConnection.php");
 include("models/Author.php");
 class AuthorService{
     public function getAllAuthors(){

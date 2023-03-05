@@ -1,5 +1,5 @@
 <?php
-include("configs/DBConnection.php");
+require_once("configs/DBConnection.php");
 include("models/Category.php");
 
 class CategoryService{
