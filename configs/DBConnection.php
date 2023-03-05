@@ -15,6 +15,10 @@ class DBConnection{
     public function getConnection(){
         return $this->conn;
     }
+    
+    public function query($sql){
+        return $this->conn->query($sql);
+    }
 
 
 }
